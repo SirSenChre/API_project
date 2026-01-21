@@ -1,0 +1,30 @@
+export const BASE_URL = 'https://api.frankfurter.app';
+
+export const currencyMap = {
+    "PLN": { name: "Polski złoty", flag: "pl" },
+    "EUR": { name: "Euro", flag: "eu" },
+    "USD": { name: "Dolar amerykański", flag: "us" },
+    "CHF": { name: "Frank szwajcarski", flag: "ch" },
+    "GBP": { name: "Funt szterling", flag: "gb" },
+    "CZK": { name: "Korona czeska", flag: "cz" },
+    "NOK": { name: "Korona norweska", flag: "no" },
+    "SEK": { name: "Korona szwedzka", flag: "se" },
+    "DKK": { name: "Korona duńska", flag: "dk" },
+    "HUF": { name: "Forint węgierski", flag: "hu" },
+    "CAD": { name: "Dolar kanadyjski", flag: "ca" },
+    "AUD": { name: "Dolar australijski", flag: "au" },
+    "JPY": { name: "Jen japoński", flag: "jp" },
+    "CNY": { name: "Yuan chiński", flag: "cn" },
+    "TRY": { name: "Lira turecka", flag: "tr" },
+    "ILS": { name: "Szekel izraelski", flag: "il" },
+    "BRL": { name: "Real brazylijski", flag: "br" },
+    "ZAR": { name: "Rand południowoafrykański", flag: "za" },
+    "RON": { name: "Lej rumuński", flag: "ro" },
+    "ISK": { name: "Korona islandzka", flag: "is" },
+    "BGN": { name: "Lew bułgarski", flag: "bg" },
+    "NZD": { name: "Dolar nowozelandzki", flag: "nz" },
+    "SGD": { name: "Dolar singapurski", flag: "sg" },
+    "KRW": { name: "Won południowokoreański", flag: "kr" },
+    "MXN": { name: "Peso meksykańskie", flag: "mx" },
+    "INR": { name: "Rupia indyjska", flag: "in" }
+};
