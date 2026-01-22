@@ -1,21 +1,67 @@
-// Paleta kolorów
-$primary-color: #2563eb
-$primary-hover: #1d4ed8
-$secondary-color: #64748b
-$background-color: #f1f5f9
-$card-color: #ffffff
-$text-color: #334155
-$border-color: #cbd5e1
+// CSS Variables for theming
+:root
+  --primary-color: #094CB9
+  --primary-hover: #1d4ed8
+  --secondary-color: #4D596A
+  --background-color: #f1f5f9
+  --card-color: #ffffff
+  --text-color: #334155
+  --border-color: #cbd5e1
+  --trend-up-bg: #dcfce7
+  --trend-up-text: #166534
+  --trend-down-bg: #fee2e2
+  --trend-down-text: #991b1b
+  --error-color: #dc2626
+  --error-bg: #fef2f2
+  --input-bg: #ffffff
+  --shadow-color: rgba(0, 0, 0, 0.1)
+  --result-bg: #eff6ff
+  --result-border: #bfdbfe
+  --result-text: #2563eb
+
+body.dark-mode
+  --primary-color: #064188
+  --primary-hover: #0853AF
+  --secondary-color: #F1F5F9
+  --background-color: #0f172a
+  --card-color: #1e293b
+  --text-color: #f1f5f9
+  --border-color: #334155
+  --trend-up-bg: #064e3b
+  --trend-up-text: #6ee7b7
+  --trend-down-bg: #7f1d1d
+  --trend-down-text: #fca5a5
+  --error-color: #f87171
+  --error-bg: #450a0a
+  --input-bg: #1e293b
+  --shadow-color: rgba(0, 0, 0, 0.3)
+  --result-bg: #172554
+  --result-border: #1e40af
+  --result-text: #93c5fd
+
+// Paleta kolorów (mapped to CSS variables)
+$primary-color: var(--primary-color)
+$primary-hover: var(--primary-hover)
+$secondary-color: var(--secondary-color)
+$background-color: var(--background-color)
+$card-color: var(--card-color)
+$text-color: var(--text-color)
+$border-color: var(--border-color)
 
 // Trendy
-$trend-up-bg: #dcfce7
-$trend-up-text: #166534
-$trend-down-bg: #fee2e2
-$trend-down-text: #991b1b
+$trend-up-bg: var(--trend-up-bg)
+$trend-up-text: var(--trend-up-text)
+$trend-down-bg: var(--trend-down-bg)
+$trend-down-text: var(--trend-down-text)
 
 // Inne
-$error-color: #dc2626
-$error-bg: #fef2f2
+$error-color: var(--error-color)
+$error-bg: var(--error-bg)
+$input-bg: var(--input-bg)
+$shadow-color: var(--shadow-color)
+$result-bg: var(--result-bg)
+$result-border: var(--result-border)
+$result-text: var(--result-text)
 
 // Typografia
 $font-stack: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif

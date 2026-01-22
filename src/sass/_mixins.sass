@@ -1,3 +1,5 @@
+@use 'variables' as *
+
 // Szybkie centrowanie flexboxem
 =flex-center
   display: flex
@@ -6,7 +8,7 @@
 
 // Obsługa cieni
 =card-shadow
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1)
+  box-shadow: 0 20px 25px -5px $shadow-color
 
 =btn-shadow
   box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2)

@@ -1,4 +1,5 @@
 import { BASE_URL, currencyMap } from './config.js';
+import '../sass/style.sass';
 import { shiftDate, adjustToWorkday, formatDate } from './utils.js';
 import { buildCustomSelect, refreshCustomSelect } from './ui.js';
 
@@ -29,18 +30,40 @@ function init() {
     const onSelectionChange = () => {
         resultContainer.style.display = 'none';
         if (historySection.style.display === 'block') {
-             historySection.style.display = 'none';
-             histBtnText.innerText = "Pokaż historię ceny";
+            historySection.style.display = 'none';
+            histBtnText.innerText = "Pokaż historię ceny";
         }
     };
 
     buildCustomSelect(fromSelect, 'fromCurrency-custom', sortedCurrencies, onSelectionChange);
     buildCustomSelect(toSelect, 'toCurrency-custom', sortedCurrencies, onSelectionChange);
-    
-    // Podpięcie guzików (zakładając, że masz je w HTML z odpowiednimi ID lub onclick)
+
     document.getElementById('convertBtn').addEventListener('click', convertCurrency);
     document.getElementById('swapBtn').addEventListener('click', swapCurrencies);
-    document.getElementById('histBtn').addEventListener('click', toggleHistory);
+    document.getElementById('historyBtn').addEventListener('click', toggleHistory);
+    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+
+    // Init Theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        document.getElementById('themeToggle').innerText = '☀️';
+    }
+}
+
+function toggleTheme() {
+    const body = document.body;
+    const btn = document.getElementById('themeToggle');
+
+    body.classList.toggle('dark-mode');
+
+    if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark');
+        btn.innerText = '☀️';
+    } else {
+        localStorage.setItem('theme', 'light');
+        btn.innerText = '🌙';
+    }
 }
 
 async function convertCurrency() {
@@ -53,7 +76,7 @@ async function convertCurrency() {
     setLoading(true);
     errorMsg.style.display = 'none';
     resultContainer.style.display = 'none';
-    
+
     if (historySection.style.display === 'block' && lastHistoryPair !== `${from}-${to}`) {
         historySection.style.display = 'none';
         histBtnText.innerText = "Pokaż historię ceny";
@@ -72,7 +95,7 @@ async function convertCurrency() {
         if (!data.rates || !data.rates[to]) throw new Error("Brak kursu");
 
         const resultVal = data.rates[to];
-        globalCurrentRate = resultVal / amount; 
+        globalCurrentRate = resultVal / amount;
 
         showResult(resultVal, globalCurrentRate, from, to);
 
@@ -111,11 +134,11 @@ async function toggleHistory() {
     historySection.style.display = 'block';
     histBtnText.innerText = "Ukryj historię ceny";
     document.getElementById('histLabel').innerText = `${from} ➝ ${to}`;
-    
+
     if (globalCurrentRate === 0 || lastHistoryPair !== currentPair) {
         await fetchCurrentRateBeforeHistory(from, to);
     }
-    
+
     if (lastHistoryPair !== currentPair) {
         lastHistoryPair = currentPair;
         await fetchHistoryData(from, to);
@@ -126,16 +149,16 @@ async function fetchCurrentRateBeforeHistory(from, to) {
     try {
         const res = await fetch(`${BASE_URL}/latest?from=${from}&to=${to}`);
         const data = await res.json();
-        if(data.rates && data.rates[to]) {
+        if (data.rates && data.rates[to]) {
             globalCurrentRate = data.rates[to];
         }
-    } catch(e) { console.error("Błąd pobierania kursu bazowego"); }
+    } catch (e) { console.error("Błąd pobierania kursu bazowego"); }
 }
 
 async function fetchHistoryData(from, to) {
     const listEl = document.getElementById('historyList');
     const loader = document.getElementById('histLoader');
-    
+
     listEl.innerHTML = '';
     loader.style.display = 'block';
 
@@ -153,7 +176,7 @@ async function fetchHistoryData(from, to) {
         const promises = periods.map(p => {
             let adjustedDate = adjustToWorkday(p.date);
             const dateStr = formatDate(adjustedDate);
-            
+
             const url = `${BASE_URL}/${dateStr}?from=${from}&to=${to}`;
             return fetch(url).then(r => r.ok ? r.json() : { period: p, error: true }).then(d => ({ period: p, data: d }));
         });
@@ -169,7 +192,7 @@ async function fetchHistoryData(from, to) {
             if (data && data.rates && data.rates[to]) {
                 const histRate = data.rates[to];
                 const diffPercent = ((histRate - globalCurrentRate) / globalCurrentRate) * 100;
-                
+
                 valHtml = `${histRate.toFixed(4)} ${to}`;
 
                 if (diffPercent > 0.001) {
@@ -215,10 +238,10 @@ function swapCurrencies() {
     const temp = fromSelect.value;
     fromSelect.value = toSelect.value;
     toSelect.value = temp;
-    
+
     refreshCustomSelect('fromCurrency-custom', fromSelect.value);
     refreshCustomSelect('toCurrency-custom', toSelect.value);
-    
+
     resultContainer.style.display = 'none';
     historySection.style.display = 'none';
     histBtnText.innerText = "Pokaż historię ceny";
