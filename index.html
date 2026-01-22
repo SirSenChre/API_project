@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Przelicznik Walut + Historia (Frankfurter API)</title>
+<script defer src="bundle.js"></script></head>
+
+<body>
+
+    <div class="converter-card">
+        <button id="themeToggle" class="theme-toggle" title="Przełącz tryb ciemny">🌙</button>
+        <h1>Przelicznik Walut</h1>
+
+        <div class="form-group">
+            <label for="amount">Kwota:</label>
+            <input type="number" id="amount" value="100" min="0" step="0.01">
+        </div>
+
+        <div class="form-group">
+            <label>Z waluty:</label>
+            <select id="fromCurrency"></select>
+            <div id="fromCurrency-custom" class="custom-select-wrapper"></div>
+        </div>
+
+        <div class="swap-icon" id="swapBtn" title="Zamień waluty">⇅</div>
+
+        <div class="form-group">
+            <label>Na walutę:</label>
+            <select id="toCurrency"></select>
+            <div id="toCurrency-custom" class="custom-select-wrapper"></div>
+        </div>
+
+        <div class="buttons-container">
+            <button class="btn-primary" id="convertBtn">
+                <span id="btnText">Przelicz teraz</span>
+                <div class="loader" id="btnLoader"></div>
+            </button>
+
+            <button class="btn-secondary" id="historyBtn">
+                <span id="histBtnText">Pokaż historię ceny</span>
+            </button>
+        </div>
+
+        <div id="errorMsg" class="error"></div>
+
+        <div class="result-container" id="resultContainer">
+            <div class="result-text" id="resultValue"></div>
+            <div class="rate-info" id="rateInfo"></div>
+        </div>
+
+        <div class="history-section" id="historySection">
+            <h4 style="margin: 0 0 1rem 0; text-align: center; color: var(--text-color);">
+                Porównanie do ceny obecnej (<span id="histLabel"></span>)
+            </h4>
+            <div id="histLoader" class="loader-blue"></div>
+            <ul class="history-list" id="historyList"></ul>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+</body>
+
+</html>
