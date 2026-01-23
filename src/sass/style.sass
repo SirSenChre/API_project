@@ -1,3 +1,16 @@
+// 1. Narzędzia konfiguracyjne (jeśli potrzebne globalnie, choć @use zamyka scope)
 @use 'variables'
 @use 'mixins'
-@use 'main'
+
+// 2. Podstawy i Layout
+@use 'base'
+@use 'layout'
+
+// 3. Komponenty i Moduły
+@use 'forms'
+@use 'select'
+@use 'buttons'
+@use 'results'
+
+// 4. Narzędzia pomocnicze
+@use 'utils'

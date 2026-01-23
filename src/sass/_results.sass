@@ -1,0 +1,80 @@
+@use 'variables' as *
+
+.result-container
+  margin-top: 1.5rem
+  padding: 1.5rem
+  background-color: $result-bg
+  border: 1px solid $result-border
+  border-radius: 12px
+  text-align: center
+  display: none
+
+.result-text
+  font-size: 1.75rem
+  font-weight: 800
+  color: $result-text
+  line-height: 1.2
+
+.rate-info
+  font-size: 0.9rem
+  color: $secondary-color
+  margin-top: 0.5rem
+
+.history-section
+  margin-top: 1.5rem
+  border-top: 2px dashed #e2e8f0
+  padding-top: 1.5rem
+  display: none
+
+.history-list
+  list-style: none
+  padding: 0
+  margin: 0
+
+.history-item
+  display: flex
+  justify-content: space-between
+  align-items: center
+  padding: 0.8rem 0
+  border-bottom: 1px solid $background-color
+  
+  &:last-child
+    border-bottom: none
+
+.hist-left
+  text-align: left
+
+.hist-right
+  text-align: right
+
+.hist-label
+  font-weight: 600
+  font-size: 0.9rem
+  color: $text-color
+
+.hist-date
+  font-size: 0.75rem
+  color: #94a3b8
+  display: block
+
+.hist-value
+  font-weight: bold
+  color: $text-color
+  display: block
+
+// Trend Tags
+.trend-tag
+  display: inline-block
+  font-size: 0.75rem
+  padding: 2px 6px
+  border-radius: 6px
+  margin-top: 4px
+  font-weight: 700
+
+.trend-up
+  background-color: $trend-up-bg
+  color: $trend-up-text
+
+.trend-down
+  background-color: $trend-down-bg
+  color: $trend-down-text

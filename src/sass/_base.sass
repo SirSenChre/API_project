@@ -1,0 +1,15 @@
+@use 'variables' as *
+@use 'mixins' as *
+
+h1
+  text-align: center
+  margin-bottom: 2rem
+  font-size: 1.75rem
+  color: $text-color
+  margin-top: 0
+
+  +respond-to('tablet')
+    font-size: 1.6rem
+
+  +respond-to('mobile')
+    font-size: 1.3rem

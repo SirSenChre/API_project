@@ -1,0 +1,27 @@
+@use 'variables' as *
+
+.form-group
+  margin-bottom: 1.5rem
+  position: relative
+
+label
+  display: block
+  margin-bottom: 0.5rem
+  font-weight: 600
+  font-size: 0.9rem
+  color: $secondary-color
+
+input
+  width: 100%
+  padding: 1rem
+  border: 1px solid $border-color
+  border-radius: 10px
+  font-size: 1.1rem
+  box-sizing: border-box
+  transition: border-color 0.2s, background-color 0.3s, color 0.3s
+  background-color: $input-bg
+  color: $text-color
+  
+  &:focus
+    outline: none
+    border-color: $primary-color

@@ -1,0 +1,36 @@
+@use 'variables' as *
+
+.loader
+  border: 3px solid rgba(255,255,255,0.3)
+  border-top: 3px solid white
+  border-radius: 50%
+  width: 20px
+  height: 20px
+  animation: spin 1s linear infinite
+  display: none
+
+.loader-blue
+  border: 3px solid #e2e8f0
+  border-top: 3px solid $primary-color
+  border-radius: 50%
+  width: 24px
+  height: 24px
+  animation: spin 1s linear infinite
+  margin: 10px auto
+  display: none
+
+.error
+  color: $error-color
+  text-align: center
+  margin-top: 1rem
+  font-size: 0.9rem
+  display: none
+  padding: 0.5rem
+  background: $error-bg
+  border-radius: 6px
+
+@keyframes spin
+  0%
+    transform: rotate(0deg)
+  100%
+    transform: rotate(360deg)

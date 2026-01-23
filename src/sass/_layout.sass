@@ -1,0 +1,61 @@
+@use 'variables' as *
+@use 'mixins' as *
+
+body
+  font-family: $font-stack
+  background-color: $background-color
+  +flex-center
+  min-height: 100vh
+  margin: 0
+  color: $text-color
+  padding: 20px
+
+  +respond-to('tablet')
+    padding: 15px
+
+  +respond-to('mobile')
+    padding: 10px
+
+.converter-card
+  background-color: $card-color
+  padding: 2rem
+  border-radius: 20px
+  +card-shadow
+  width: 100%
+  max-width: 480px
+  position: relative
+
+  +respond-to('tablet')
+    padding: 1.75rem
+    border-radius: 18px
+    max-width: 600px
+
+  +respond-to('mobile')
+    padding: 1.5rem
+    border-radius: 15px
+    max-width: 100%
+
+.theme-toggle
+  position: absolute
+  top: 1.5rem
+  right: 1.5rem
+  background: none
+  border: none
+  font-size: 1.5rem
+  cursor: pointer
+  padding: 0.5rem
+  width: auto
+  box-shadow: none
+  color: $text-color
+  
+  +respond-to('tablet')
+    top: 1.25rem
+    right: 1.25rem
+
+  +respond-to('mobile')
+    top: 0.7rem
+    right: 0.7rem
+  
+  &:hover
+    transform: scale(1.1)
+    background: none
