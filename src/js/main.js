@@ -71,7 +71,12 @@ async function convertCurrency() {
     const from = fromSelect.value;
     const to = toSelect.value;
 
-    if (!amount || amount <= 0) return;
+    if (!amount || amount <= 0) {
+        document.getElementById('resultValue').innerText = "Podaj kwotę większą od zera";
+        document.getElementById('rateInfo').innerText = "";
+        resultContainer.style.display = 'block';
+        return;
+    }
 
     setLoading(true);
     errorMsg.style.display = 'none';
